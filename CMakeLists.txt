@@ -5,4 +5,15 @@ set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
-add_executable (2dGame src/main.cpp)
+SET(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${2dGame_SOURCE_DIR}/CMakeModules)
+
+find_package(GLFW3 REQUIRED)
+
+include_directories(${GLFW_INCLUDE_DIR})
+
+set(game_libs
+  ${GLFW_LIBRARY}
+)
+
+add_executable (game src/main.cpp)
+target_link_libraries (game ${game_libs})
