@@ -1,39 +1,18 @@
-#include <GLFW/glfw3.h>
-
 #include "logger.h"
+#include "window.h"
 
 int main(int argc, char **argv) {
   log_info("Game Initializing");
 
-  GLFWwindow* window;
+  // Create a window
+  Window window(640, 480, "Game!");
+  while (!window.shouldClose()) {
+    // Do Game Logic
+    // Do Input
+    // Do Rendering
 
-  /* Initialize the library */
-  if (!glfwInit())
-    return -1;
-
-  /* Create a windowed mode window and its OpenGL context */
-  window = glfwCreateWindow(640, 480, "Hello World", NULL, NULL);
-  if (!window)
-  {
-    glfwTerminate();
-    return -1;
+    window.swapBuffer();
   }
 
-  /* Make the window's context current */
-  glfwMakeContextCurrent(window);
-
-  /* Loop until the user closes the window */
-  while (!glfwWindowShouldClose(window))
-  {
-    /* Render here */
-
-    /* Swap front and back buffers */
-    glfwSwapBuffers(window);
-
-    /* Poll for and process events */
-    glfwPollEvents();
-  }
-
-  glfwTerminate();
   return 0;
 }
