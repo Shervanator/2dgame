@@ -1,9 +1,8 @@
 #include <iostream>
 
+#include "logger.h"
+
 int main(int argc, char **argv) {
-  std::cout << "Hello world" << std::endl;
-  std::cout << "How are you" << std::endl;
-  std::cout << "How are poo" << std::endl;
-  std::cout << "How are today?" << std::endl;
+  log_info("Game Initializing");
   return 0;
 }
