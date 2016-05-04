@@ -2,23 +2,25 @@
 
 #include "logger.h"
 
-Window::Window(int width, int height, char *title) {
-  if (!glfwInit()) {
-    log_err("Could not init window");
-  }
+#include <stdexcept>
+
+Window::Window(int width, int height, const char *title) {
+  window = nullptr;
 
   window = glfwCreateWindow(width, height, title, NULL, NULL);
   if (!window)
   {
-    glfwTerminate();
-    log_err("Could not init window");
+    throw std::runtime_error("Could not init window");
   }
 
   glfwMakeContextCurrent(window);
 }
 
 Window::~Window(void) {
-  glfwTerminate();
+  log_info("HERE");
+  if (window != nullptr) {
+    glfwDestroyWindow(window);
+  }
 }
 
 bool Window::shouldClose(void) {
@@ -26,7 +28,6 @@ bool Window::shouldClose(void) {
 }
 
 void Window::swapBuffer(void) {
-  glClear(GL_COLOR_BUFFER_BIT);
   glfwSwapBuffers(window);
   glfwPollEvents();
 }

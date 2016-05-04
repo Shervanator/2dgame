@@ -17,5 +17,5 @@ set(game_libs
   ${GLFW_LIBRARY}
 )
 
-add_executable (game src/main.cpp src/window.cpp)
+add_executable (game src/main.cpp src/window.cpp src/window_manager.cpp)
 target_link_libraries (game ${game_libs})

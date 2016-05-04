@@ -3,7 +3,7 @@
 class Window
 {
 public:
-  Window(int width, int height, char *title);
+  Window(int width, int height, const char *title);
   ~Window(void);
 
   bool shouldClose(void);
