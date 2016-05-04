@@ -12,8 +12,6 @@ Window::Window(int width, int height, const char *title) {
   {
     throw std::runtime_error("Could not init window");
   }
-
-  glfwMakeContextCurrent(window);
 }
 
 Window::~Window(void) {
@@ -30,4 +28,8 @@ bool Window::shouldClose(void) {
 void Window::swapBuffer(void) {
   glfwSwapBuffers(window);
   glfwPollEvents();
+}
+
+void Window::setCurrentContext(void) {
+  glfwMakeContextCurrent(window);
 }

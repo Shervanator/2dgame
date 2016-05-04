@@ -8,6 +8,7 @@ public:
 
   bool shouldClose(void);
   void swapBuffer(void);
+  void setCurrentContext(void);
 
 private:
   GLFWwindow* window;

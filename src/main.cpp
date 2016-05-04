@@ -7,12 +7,10 @@ int main(int argc, char **argv) {
   WindowManager windowManager;
 
   Window window = windowManager.create(640, 480, "Game!");
+  window.setCurrentContext();
+  glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 
-  while (!window.shouldClose()) {
-    // Do Game Logic
-    // Do Input
-
-    // Do Rendering
+  while (!window.shouldClose()) {    
     glClear(GL_COLOR_BUFFER_BIT);
 
     window.swapBuffer();
